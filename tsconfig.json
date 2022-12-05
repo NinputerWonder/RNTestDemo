@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["es2015", "es6", "es7", "es2017"],
     "pretty": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "watch": true,
     "sourceMap": true,
     "outDir": "./",

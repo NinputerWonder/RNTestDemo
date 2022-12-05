@@ -1,17 +1,13 @@
-/**
- * @format
- */
-
-import {Alert, Button} from 'react-native';
+import {Alert} from 'react-native';
 import React from 'react';
-import ButtonsView from '../ButtonsView';
-import {it, expect} from '@jest/globals';
+import ButtonsView from './ButtonsView';
 import {render, screen, fireEvent} from '@testing-library/react-native';
+import {test, jest, expect} from '@jest/globals';
 
-it('renders correctly', () => {
+test('renders correctly', () => {
     const alert = jest.spyOn(Alert, 'alert');
 
-    render(<ButtonsView />);
+    render(<ButtonsView/>);
     const elements = screen.getAllByText('Press me');
     expect(elements).toHaveLength(3);
 

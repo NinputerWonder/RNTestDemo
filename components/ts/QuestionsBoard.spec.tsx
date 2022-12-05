@@ -1,15 +1,16 @@
 import * as React from 'react';
-import QuestionsBoard from '../QuestionsBoard';
-import {render, screen, fireEvent} from '@testing-library/react-native';
+import QuestionsBoard from './QuestionsBoard';
+import {render, fireEvent} from '@testing-library/react-native';
 import {test, jest, expect} from '@jest/globals';
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
 test('form submits two answers', () => {
     const allQuestions = ['q1', 'q2'];
     const mockFn = jest.fn();
 
-    const { getAllByLabelText, getByText } = render(
-        <QuestionsBoard questions={allQuestions} onSubmit={mockFn} />
-);
+    const {getAllByLabelText, getByText} = render(
+        <QuestionsBoard questions={allQuestions} onSubmit={mockFn}/>
+    );
 
     const answerInputs = getAllByLabelText('answer input');
 
@@ -18,7 +19,7 @@ test('form submits two answers', () => {
     fireEvent.press(getByText('Submit'));
 
     expect(mockFn).toHaveBeenCalledWith({
-        '1': { q: 'q1', a: 'a1' },
-        '2': { q: 'q2', a: 'a2' },
+        '1': {q: 'q1', a: 'a1'},
+        '2': {q: 'q2', a: 'a2'},
     });
 });

@@ -7,10 +7,9 @@ import {
     Text,
     Alert,
 } from 'react-native';
-// import Constants from 'expo-constants';
 
 const Separator = () => {
-    return <View style={styles.separator} />;
+    return <View style={styles.separator}/>;
 };
 
 const ButtonsView = () => {
@@ -26,7 +25,7 @@ const ButtonsView = () => {
                     onPress={() => Alert.alert('Simple Button pressed')}
                 />
             </View>
-            <Separator />
+            <Separator/>
             <View>
                 <Text style={styles.title}>
                     Adjust the color in a way that looks standard on each platform. On
@@ -39,7 +38,7 @@ const ButtonsView = () => {
                     onPress={() => Alert.alert('Button with adjusted color pressed')}
                 />
             </View>
-            <Separator />
+            <Separator/>
             <View>
                 <Text style={styles.title}>
                     All interaction for the component are disabled.
@@ -50,7 +49,7 @@ const ButtonsView = () => {
                     onPress={() => Alert.alert('Cannot press this one')}
                 />
             </View>
-            <Separator />
+            <Separator/>
             <View>
                 <Text style={styles.title}>
                     This layout strategy lets the title define the width of the button.
@@ -91,4 +90,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default  ButtonsView;
+export default ButtonsView;
