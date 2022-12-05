@@ -2,38 +2,48 @@ import {Alert} from 'react-native';
 import React from 'react';
 import ButtonsView from './ButtonsView';
 import {render, screen, fireEvent} from '@testing-library/react-native';
-import {test, jest, expect} from '@jest/globals';
+import {describe, test, jest, expect} from '@jest/globals';
+import renderer from "react-test-renderer";
 
-test('renders correctly', () => {
-    const alert = jest.spyOn(Alert, 'alert');
+describe('ButtonsView tests', () => {
+    test('ButtonsView snapshot', () => {
+        const tree = renderer.create(<ButtonsView/>).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
-    render(<ButtonsView/>);
-    const elements = screen.getAllByText('Press me');
-    expect(elements).toHaveLength(3);
+    test('renders correctly', () => {
+        const alert = jest.spyOn(Alert, 'alert');
 
-    fireEvent.press(elements[0]);
-    expect(alert).toHaveBeenCalledTimes(1);
-    expect(alert).toBeCalledWith('Simple Button pressed');
+        render(<ButtonsView/>);
+        const elements = screen.getAllByText('Press me');
+        expect(elements).toHaveLength(3);
 
-    alert.mockReset();
-    fireEvent.press(elements[1]);
-    expect(alert).toHaveBeenCalledTimes(1);
-    expect(alert).toBeCalledWith('Button with adjusted color pressed');
+        fireEvent.press(elements[0]);
+        expect(alert).toHaveBeenCalledTimes(1);
+        expect(alert).toBeCalledWith('Simple Button pressed');
 
-    expect(elements[2].props.disabled).toBeTruthy();
-    alert.mockReset();
-    expect(alert).toHaveBeenCalledTimes(0);
+        alert.mockReset();
+        fireEvent.press(elements[1]);
+        expect(alert).toHaveBeenCalledTimes(1);
+        expect(alert).toBeCalledWith('Button with adjusted color pressed');
 
-    const buttons = screen.getAllByRole('button', {name: /button/});
-    expect(buttons.length).toBe(2);
-    // console.log( buttons[0]);
-    // console.log( buttons[0].props);
-    // console.log( buttons[0].props.children[0].props);
+        expect(elements[2].props.disabled).toBeTruthy();
+        alert.mockReset();
+        expect(alert).toHaveBeenCalledTimes(0);
 
-    // buttons[0].query
+        const buttons = screen.getAllByRole('button', {name: /button/});
+        expect(buttons.length).toBe(2);
+        // console.log( buttons[0]);
+        // console.log( buttons[0].props);
+        // console.log( buttons[0].props.children[0].props);
 
-    // expect(buttons[0]).toHaveT('Left Button');
+        // buttons[0].query
 
-    // expect(buttons[0].props.title).toBe('Left button');
-    // expect(buttons[1].props.title).toBe('Right button');
+        // expect(buttons[0]).toHaveT('Left Button');
+
+        // expect(buttons[0].props.title).toBe('Left button');
+        // expect(buttons[1].props.title).toBe('Right button');
+    });
 });
+
+

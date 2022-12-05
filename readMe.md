@@ -29,7 +29,6 @@
    }
    ```
 
-
 # 支持TS步骤
 
 1. 为项目添加TS```yarn add --dev typescript```
@@ -41,4 +40,16 @@
 4. 生成transfomer的配置文件， ```touch rn-cli.config.js```,修改内容见commit diff
 
 5. 为React和ReactNative添加类型定义库，```yarn add --dev @types/react **@types**/react-native```
+
+# 测试方法
+
+## [快照测试](https://jestjs.io/zh-Hans/docs/snapshot-testing)
+
+每当你想要确保你的UI不会有意外的改变，快照测试是非常有用的工具。
+
+典型的做法是在渲染了UI组件之后，保存一个快照文件， 检测他是否与保存在单元测试旁的快照文件相匹配。 若两个快照不匹配，测试将失败：有可能做了意外的更改，或者UI组件已经更新到了新版本。
+
+
+
+
 

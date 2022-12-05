@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionsBoard tests QuestionsBoard snapshot 1`] = `
+<RCTScrollView>
+  <View>
+    <View>
+      <Text>
+        q1
+      </Text>
+      <TextInput
+        accessibilityHint="input"
+        accessibilityLabel="answer input"
+        onChangeText={[Function]}
+      />
+    </View>
+    <View>
+      <Text>
+        q2
+      </Text>
+      <TextInput
+        accessibilityHint="input"
+        accessibilityLabel="answer input"
+        onChangeText={[Function]}
+      />
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text>
+        Submit
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
